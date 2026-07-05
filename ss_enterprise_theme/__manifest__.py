@@ -1,0 +1,37 @@
+{
+    'name': 'Enterprise Backend Theme',
+    'version': '17.0.1.2.0',
+    'category': 'Themes/Backend',
+    'summary': 'Enterprise-style Backend Theme for Odoo Community - White Navbar, App Icons, Login Page, Tiles, and Header Search',
+    'author': 'Smart System for Information Technology',
+    'maintainer': 'Smart System for Information Technology',
+    'support': 'info@smartsystem.sa',
+    'website': 'https://smartsystem.sa',
+    'license': 'LGPL-3',
+    'depends': ['base', 'web'],
+    'data': [
+        'templates/web_layout.xml',
+        'views/res_config_settings.xml',
+    ],
+    'post_init_hook': '_post_load_hook',
+    'assets': {
+        'web.assets_backend': [
+            'ss_enterprise_theme/static/src/scss/colors.scss',
+            'ss_enterprise_theme/static/src/scss/primary_variables_custom.scss',
+            'ss_enterprise_theme/static/src/scss/secondary_variables.scss',
+            'ss_enterprise_theme/static/src/scss/fields_extra_custom.scss',
+            'ss_enterprise_theme/static/src/css/backend_theme.css',
+            'ss_enterprise_theme/static/src/webclient/navbar/navbar.js',
+            'ss_enterprise_theme/static/src/webclient/appsmenu/appsmenu.js',
+            'ss_enterprise_theme/static/src/webclient/navbar/navbar.xml',
+            'ss_enterprise_theme/static/src/webclient/appsmenu/appsmenu.xml',
+        ],
+        'web.assets_frontend': [
+            'ss_enterprise_theme/static/src/css/login_theme.css',
+        ],
+    },
+    'images': ['static/description/banner.png'],
+    'installable': True,
+    'application': False,
+    'auto_install': False,
+}

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<templates xml:space="preserve">
+
+	<t 
+		t-name="ss_enterprise_theme.NavBar" 
+		t-inherit="web.NavBar" 
+		t-inherit-mode="extension" 
+	>
+		<!-- AppsMenu replacement reverted - causing white screen -->
+		
+		<!-- Add Search Button -->
+		<xpath expr="//div[hasclass('o_menu_systray')]" position="inside">
+			<div class="o_navbar_search_btn" t-on-click="() => this.commandService.openMainPalette()">
+				<i class="fa fa-search"/>
+			</div>
+		</xpath>
+		
+		<!-- Add Dark Mode Toggle -->
+		<xpath expr="//div[hasclass('o_menu_systray')]" position="inside">
+			<div class="o_navbar_darkmode_btn" t-on-click="() => this.toggleDarkMode()">
+				<i class="fa fa-moon-o" id="darkModeIcon"/>
+			</div>
+		</xpath>
+	</t>
+	
+</templates>

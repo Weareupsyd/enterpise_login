@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<templates xml:space="preserve">
+
+	<t t-name="ss_enterprise_theme.AppsMenu" owl="1">
+		<Dropdown t-props="props">
+			<t t-set="dropdownNode" t-ref="dropdown"/>
+			<div class="dropdown-menu o_apps_menu" role="menu" t-attf-style="background-image: url(#{backgroundImageUrl}); background-size: cover; background-repeat: no-repeat; background-position: center;">
+				<t t-call="web.AppsMenu.AppItems"/>
+			</div>
+		</Dropdown>
+	</t>
+
+</templates>
