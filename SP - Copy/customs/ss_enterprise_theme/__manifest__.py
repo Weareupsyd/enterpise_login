@@ -14,7 +14,7 @@
     ],
     'post_init_hook': None,
     'assets': {
-        'web.assets_backend': [
+        'web.assets_web': [
             'ss_enterprise_theme/static/src/js/home_menu.js',
             'ss_enterprise_theme/static/src/js/home_menu_root.js',
             'ss_enterprise_theme/static/src/js/app_grid.js',
@@ -26,6 +26,7 @@
             'ss_enterprise_theme/static/src/webclient/appsbar/appsbar.js',
             'ss_enterprise_theme/static/src/webclient/appsmenu/appsmenu.scss',
             'ss_enterprise_theme/static/src/webclient/appsbar/appsbar.scss',
+            'ss_enterprise_theme/static/src/css/backend_theme.css',
             'ss_enterprise_theme/static/src/scss/grid.scss',
             'ss_enterprise_theme/static/src/scss/themes.scss',
             'ss_enterprise_theme/static/src/scss/responsive.scss',
