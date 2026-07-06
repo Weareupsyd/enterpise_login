@@ -20,6 +20,7 @@ export class HomeMenuRoot extends Component {
             searchValue: '',
             selectedTheme: 'light',
             apps: this.appMenuService.getAppsMenuItems(),
+            draggedId: null,
         });
     }
 

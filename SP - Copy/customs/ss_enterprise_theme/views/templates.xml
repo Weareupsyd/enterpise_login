@@ -41,7 +41,7 @@
     <template t-name="ss_enterprise_theme.AppGrid">
         <div class="ss-app-grid">
             <t t-foreach="this.props.apps" t-as="app" t-key="app.id">
-                <t t-component="ss_enterprise_theme.AppTile" t-props="{app: app}"/>
+                <t t-component="ss_enterprise_theme.AppTile" t-props="{ app: app, onDragStart: this.props.onDragStart, onDragOver: this.props.onDragOver, onDrop: this.props.onDrop }"/>
             </t>
         </div>
     </template>
