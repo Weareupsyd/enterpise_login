@@ -16,15 +16,24 @@ export class HomeMenuRoot extends Component {
 
     setup() {
         this.appMenuService = useService('app_menu');
+        const validThemes = ['light', 'dark', 'glass'];
         const savedTheme = typeof window !== 'undefined' ? window.localStorage.getItem('ss_enterprise_theme') : null;
-        const initialTheme = savedTheme || 'light';
+        const initialTheme = validThemes.includes(savedTheme) ? savedTheme : 'light';
         if (typeof window !== 'undefined') {
             document.body.classList.add(`ss-theme-${initialTheme}`);
         }
+        const apps = this.appMenuService.getAppsMenuItems();
+        const savedAppsOrder = typeof window !== 'undefined' ? window.localStorage.getItem('ss_enterprise_apps_order') : null;
+        const orderedApps = savedAppsOrder
+            ? JSON.parse(savedAppsOrder)
+                  .map((id) => apps.find((app) => app.id === id))
+                  .filter(Boolean)
+                  .concat(apps.filter((app) => !JSON.parse(savedAppsOrder).includes(app.id)))
+            : apps;
         this.state = useState({
             searchValue: '',
             selectedTheme: initialTheme,
-            apps: this.appMenuService.getAppsMenuItems(),
+            apps: orderedApps,
             draggedId: null,
         });
     }
@@ -81,6 +90,17 @@ export class HomeMenuRoot extends Component {
         const [moved] = apps.splice(sourceIndex, 1);
         apps.splice(targetIndex, 0, moved);
         this.state.apps = apps;
+        if (typeof window !== 'undefined') {
+            window.localStorage.setItem('ss_enterprise_apps_order', JSON.stringify(apps.map((app) => app.id)));
+        }
         this.state.draggedId = null;
+    }
+
+    onResetAppsOrder() {
+        const apps = this.appMenuService.getAppsMenuItems();
+        this.state.apps = apps;
+        if (typeof window !== 'undefined') {
+            window.localStorage.removeItem('ss_enterprise_apps_order');
+        }
     }
 }

@@ -10,11 +10,12 @@
     'license': 'LGPL-3',
     'depends': ['base', 'web'],
     'data': [
+        'views/res_config_settings.xml',
         'views/templates.xml',
     ],
     'post_init_hook': None,
     'assets': {
-        'web.assets_web': [
+        'web.assets_backend': [
             'ss_enterprise_theme/static/src/js/home_menu.js',
             'ss_enterprise_theme/static/src/js/home_menu_root.js',
             'ss_enterprise_theme/static/src/js/app_grid.js',

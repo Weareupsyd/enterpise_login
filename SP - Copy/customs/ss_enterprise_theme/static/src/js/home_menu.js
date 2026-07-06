@@ -22,7 +22,8 @@ if (typeof window !== 'undefined') {
     window.addEventListener('load', () => {
         try {
             const hash = window.location.hash || '';
-            if (!hash.includes('action=') && window.location.pathname.endsWith('/web')) {
+            const path = window.location.pathname || '';
+            if (!hash.includes('action=') && (path.endsWith('/web') || path.endsWith('/web/'))) {
                 window.location.hash = '#action=ss_enterprise_home_menu';
             }
         } catch (err) {

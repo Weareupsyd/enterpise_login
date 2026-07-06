@@ -12,6 +12,7 @@
                 <div class="ss-enterprise-home-menu__header">
                     <t t-component="ss_enterprise_theme.SearchBar" t-props="{ value: this.state.searchValue || '', onSearch: this.onSearch.bind(this) }"/>
                     <t t-component="ss_enterprise_theme.ThemeManager" t-props="{ selectedTheme: this.state.selectedTheme || 'light', onSelect: this.onThemeSelected.bind(this) }"/>
+                    <button type="button" class="ss-reset-order-button" t-on-click="this.onResetAppsOrder.bind(this)">Reset app order</button>
                 </div>
                 <t t-component="ss_enterprise_theme.AppGrid" t-props="{ apps: this.filteredApps, onDragStart: this.onDragStart.bind(this), onDragOver: this.onDragOver.bind(this), onDrop: this.onDrop.bind(this), onAppClick: this.onAppClick.bind(this) }"/>
             </div>
