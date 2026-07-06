@@ -38,3 +38,10 @@ export const appMenuService = {
                     return appsMenuItem;
                 });
                 return menuItems;
+            },
+        };
+    },
+};
+
+registry.category("services").add("app_menu", appMenuService);
+
