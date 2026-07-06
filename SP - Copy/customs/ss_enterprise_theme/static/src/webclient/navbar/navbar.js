@@ -8,12 +8,12 @@ import { AppsMenu } from "./appsmenu/appsmenu";
 
 console.log("[SS Enterprise Theme] Patching NavBar");
 
-patch(NavBar.prototype, 'ss_enterprise_theme/NavBar', {
+patch(NavBar.prototype, {
 	setup() {
         super.setup();
         console.log("[SS Enterprise Theme] NavBar prototype patched");
-        this.appMenuService = useService('app_menu');
         this.commandService = useService('command');
+        this.appMenuService = useService('app_menu');
         this.isDarkMode = false;
     },
     
@@ -35,9 +35,13 @@ patch(NavBar.prototype, 'ss_enterprise_theme/NavBar', {
             }
         }
     },
+
+    openCommandPalette() {
+        this.commandService.openMainPalette();
+    },
 });
 
-patch(NavBar, 'ss_enterprise_theme/NavBar_components', {
+patch(NavBar, {
     components: {
         ...NavBar.components,
         AppsMenu,

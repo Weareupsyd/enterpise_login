@@ -11,14 +11,14 @@
 		
 		<!-- Add Search Button -->
 		<xpath expr="//div[hasclass('o_menu_systray')]" position="inside">
-			<div class="o_navbar_search_btn" t-on-click="() => this.commandService.openMainPalette()">
+			<div class="o_navbar_search_btn" t-on-click="openCommandPalette">
 				<i class="fa fa-search"/>
 			</div>
 		</xpath>
 		
 		<!-- Add Dark Mode Toggle -->
 		<xpath expr="//div[hasclass('o_menu_systray')]" position="inside">
-			<div class="o_navbar_darkmode_btn" t-on-click="() => this.toggleDarkMode()">
+			<div class="o_navbar_darkmode_btn" t-on-click="toggleDarkMode">
 				<i class="fa fa-moon-o" id="darkModeIcon"/>
 			</div>
 		</xpath>

@@ -18,6 +18,8 @@ export class AppsMenu extends Dropdown {
         this.commandService = useService("command");
     	this.companyService = useService('company');
     	this.appMenuService = useService('app_menu');
+    	this.menuItems = this.appMenuService.getAppsMenuItems();
+    	console.log("[SS Enterprise Theme] Menu items loaded:", this.menuItems.length);
     	if (this.companyService.currentCompany.has_background_image) {
             this.backgroundImageUrl = url('/web/image', {
                 model: 'res.company',
