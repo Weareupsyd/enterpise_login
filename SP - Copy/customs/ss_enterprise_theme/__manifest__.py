@@ -10,15 +10,25 @@
     'license': 'LGPL-3',
     'depends': ['base', 'web'],
     'data': [
-        'views/assets.xml',
         'views/templates.xml',
     ],
     'post_init_hook': None,
     'assets': {
         'web.assets_backend': [
-            'ss_enterprise_theme/static/src/webclient/appsmenu/appsmenu.js',
-            'ss_enterprise_theme/static/src/webclient/appsmenu/appsmenu.scss',
             'ss_enterprise_theme/static/src/js/home_menu.js',
+            'ss_enterprise_theme/static/src/js/home_menu_root.js',
+            'ss_enterprise_theme/static/src/js/app_grid.js',
+            'ss_enterprise_theme/static/src/js/app_tile.js',
+            'ss_enterprise_theme/static/src/js/search_bar.js',
+            'ss_enterprise_theme/static/src/js/theme_manager.js',
+            'ss_enterprise_theme/static/src/webclient/webclient.js',
+            'ss_enterprise_theme/static/src/webclient/menus/app_menu_service.js',
+            'ss_enterprise_theme/static/src/webclient/appsbar/appsbar.js',
+            'ss_enterprise_theme/static/src/webclient/appsmenu/appsmenu.scss',
+            'ss_enterprise_theme/static/src/webclient/appsbar/appsbar.scss',
+            'ss_enterprise_theme/static/src/scss/grid.scss',
+            'ss_enterprise_theme/static/src/scss/themes.scss',
+            'ss_enterprise_theme/static/src/scss/responsive.scss',
         ],
         'web.assets_frontend': [
             'ss_enterprise_theme/static/src/css/login_theme.css',
