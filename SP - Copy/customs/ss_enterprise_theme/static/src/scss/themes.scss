@@ -1,0 +1,24 @@
+:root {
+    --ss-primary: #875A7B;
+    --ss-background: #111827;
+    --ss-tile-background: rgba(255, 255, 255, 0.08);
+    --ss-text-color: #ffffff;
+}
+
+body.ss-theme-light {
+    --ss-background: #f8fafc;
+    --ss-tile-background: rgba(255, 255, 255, 0.9);
+    --ss-text-color: #111827;
+}
+
+body.ss-theme-dark {
+    --ss-background: #0f172a;
+    --ss-tile-background: rgba(255, 255, 255, 0.08);
+    --ss-text-color: #ffffff;
+}
+
+body.ss-theme-glass {
+    --ss-background: rgba(15, 23, 42, 0.85);
+    --ss-tile-background: rgba(255, 255, 255, 0.12);
+    --ss-text-color: #ffffff;
+}

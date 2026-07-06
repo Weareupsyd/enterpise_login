@@ -10,10 +10,10 @@
         <t t-name="ss_enterprise_theme.HomeMenu">
             <div class="ss-enterprise-home-menu o_container">
                 <div class="ss-enterprise-home-menu__header">
-                    <t t-component="ss_enterprise_theme.SearchBar"/>
-                    <t t-component="ss_enterprise_theme.ThemeManager"/>
+                    <t t-component="ss_enterprise_theme.SearchBar" t-props="{ value: this.state?.searchValue || '', onSearch: this.onSearch.bind(this) }"/>
+                    <t t-component="ss_enterprise_theme.ThemeManager" t-props="{ selectedTheme: this.state?.selectedTheme || 'light', onSelect: this.onThemeSelected.bind(this) }"/>
                 </div>
-                <t t-component="ss_enterprise_theme.AppGrid"/>
+                <t t-component="ss_enterprise_theme.AppGrid" t-props="{ apps: this.filteredApps, onDragStart: this.onDragStart.bind(this), onDragOver: this.onDragOver.bind(this), onDrop: this.onDrop.bind(this) }"/>
             </div>
         </t>
     </template>

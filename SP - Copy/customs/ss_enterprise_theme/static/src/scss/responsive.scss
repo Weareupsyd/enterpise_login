@@ -1,0 +1,26 @@
+.ss-app-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+}
+
+@media (max-width: 1200px) {
+    .ss-app-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+    .ss-app-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 600px) {
+    .ss-enterprise-home-menu__header {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .ss-app-grid {
+        grid-template-columns: 1fr;
+    }
+}
