@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <!-- Client action to show the Enterprise Home Menu -->
+    <record id="action_ss_enterprise_home_menu" model="ir.actions.client">
+        <field name="name">Enterprise Home Menu</field>
+        <field name="tag">ss_enterprise_home_menu</field>
+    </record>
+
+    <!-- QWeb container template reference for the home menu -->
+    <template id="ss_enterprise_home_menu_template">
+        <t t-name="ss_enterprise_theme.HomeMenu">
+            <div id="ss_enterprise_home_menu" class="ss-enterprise-home-menu">
+                <div class="ss-enterprise-search"/>
+                <div class="ss-enterprise-grid"/>
+            </div>
+        </t>
+    </template>
+</odoo>

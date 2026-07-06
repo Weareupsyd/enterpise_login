@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<odoo>
+    <template id="assets_backend" inherit_id="web.assets_backend" name="ss_enterprise_theme assets">
+        <xpath expr="." position="inside">
+            <script type="module" src="/ss_enterprise_theme/static/src/js/home_menu.js"></script>
+            <script type="module" src="/ss_enterprise_theme/static/src/webclient/appsbar/appsbar.js"></script>
+            <link rel="stylesheet" href="/ss_enterprise_theme/static/src/webclient/appsmenu/appsmenu.scss"/>
+            <link rel="stylesheet" href="/ss_enterprise_theme/static/src/webclient/appsbar/appsbar.scss"/>
+        </xpath>
+    </template>
+</odoo>

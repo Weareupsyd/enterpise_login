@@ -9,10 +9,17 @@
     'website': 'https://smartsystem.sa',
     'license': 'LGPL-3',
     'depends': ['base', 'web'],
-    'data': [],
+    'data': [
+        'views/assets.xml',
+        'views/templates.xml',
+    ],
     'post_init_hook': None,
     'assets': {
-        'web.assets_backend': [],
+        'web.assets_backend': [
+            'ss_enterprise_theme/static/src/webclient/appsmenu/appsmenu.js',
+            'ss_enterprise_theme/static/src/webclient/appsmenu/appsmenu.scss',
+            'ss_enterprise_theme/static/src/js/home_menu.js',
+        ],
         'web.assets_frontend': [
             'ss_enterprise_theme/static/src/css/login_theme.css',
         ],
