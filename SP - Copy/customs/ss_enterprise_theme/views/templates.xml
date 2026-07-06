@@ -6,13 +6,59 @@
         <field name="tag">ss_enterprise_home_menu</field>
     </record>
 
-    <!-- QWeb container template reference for the home menu -->
     <template id="ss_enterprise_home_menu_template">
         <t t-name="ss_enterprise_theme.HomeMenu">
-            <div id="ss_enterprise_home_menu" class="ss-enterprise-home-menu">
-                <div class="ss-enterprise-search"/>
-                <div class="ss-enterprise-grid"/>
+            <div class="ss-enterprise-home-menu o_container">
+                <div class="ss-enterprise-home-menu__header">
+                    <t t-component="ss_enterprise_theme.SearchBar"/>
+                    <t t-component="ss_enterprise_theme.ThemeManager"/>
+                </div>
+                <t t-component="ss_enterprise_theme.AppGrid"/>
             </div>
         </t>
+    </template>
+
+    <template t-name="ss_enterprise_theme.SearchBar">
+        <div class="ss-search-bar">
+            <input
+                class="ss-search-input"
+                type="text"
+                placeholder="Search apps..."
+                t-on-input="this.onInput"
+                t-att-value="this.props.value"
+            />
+        </div>
+    </template>
+
+    <template t-name="ss_enterprise_theme.ThemeManager">
+        <div class="ss-theme-manager">
+            <button type="button" t-on-click="() => this.selectTheme('light')" t-att-class="'ss-theme-button ' + (this.props.selectedTheme === 'light' ? 'active' : '')">Light</button>
+            <button type="button" t-on-click="() => this.selectTheme('dark')" t-att-class="'ss-theme-button ' + (this.props.selectedTheme === 'dark' ? 'active' : '')">Dark</button>
+            <button type="button" t-on-click="() => this.selectTheme('glass')" t-att-class="'ss-theme-button ' + (this.props.selectedTheme === 'glass' ? 'active' : '')">Glass</button>
+        </div>
+    </template>
+
+    <template t-name="ss_enterprise_theme.AppGrid">
+        <div class="ss-app-grid">
+            <t t-foreach="this.props.apps" t-as="app" t-key="app.id">
+                <t t-component="ss_enterprise_theme.AppTile" t-props="{app: app}"/>
+            </t>
+        </div>
+    </template>
+
+    <template t-name="ss_enterprise_theme.AppTile">
+        <div class="ss-app-tile"
+             draggable="true"
+             t-on-dragstart="(ev) => this.onDragStart(ev, this.props.app.id)"
+             t-on-dragover="this.onDragOver"
+             t-on-drop="(ev) => this.onDrop(ev, this.props.app.id)">
+            <div class="ss-app-tile__icon">
+                <img t-if="this.props.app.webIconData" t-att-src="this.props.app.webIconData" alt="Icon"/>
+                <div t-if="!this.props.app.webIconData" class="ss-app-tile__fallback-icon"/>
+            </div>
+            <div class="ss-app-tile__name">
+                <t t-esc="this.props.app.name"/>
+            </div>
+        </div>
     </template>
 </odoo>
