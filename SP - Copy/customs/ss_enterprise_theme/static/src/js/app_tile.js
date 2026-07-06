@@ -9,6 +9,7 @@ export class AppTile extends Component {
         onDragStart: Function,
         onDragOver: Function,
         onDrop: Function,
+        onAppClick: Function,
     };
 
     onDragStart(event) {
@@ -21,5 +22,9 @@ export class AppTile extends Component {
 
     onDrop(event) {
         this.props.onDrop(event, this.props.app.id);
+    }
+
+    onClick() {
+        this.props.onAppClick(this.props.app);
     }
 }

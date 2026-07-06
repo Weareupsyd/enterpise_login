@@ -23,7 +23,7 @@ if (typeof window !== 'undefined') {
         try {
             const hash = window.location.hash || '';
             if (!hash.includes('action=') && window.location.pathname.endsWith('/web')) {
-                window.location.hash = 'action=ss_enterprise_theme.action_ss_enterprise_home_menu';
+                window.location.hash = '#action=ss_enterprise_home_menu';
             }
         } catch (err) {
             // silent

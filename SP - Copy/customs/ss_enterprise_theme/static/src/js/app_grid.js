@@ -11,5 +11,6 @@ export class AppGrid extends Component {
         onDragStart: Function,
         onDragOver: Function,
         onDrop: Function,
+        onAppClick: Function,
     };
 }

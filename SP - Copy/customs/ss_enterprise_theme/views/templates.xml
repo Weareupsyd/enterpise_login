@@ -13,7 +13,7 @@
                     <t t-component="ss_enterprise_theme.SearchBar" t-props="{ value: this.state.searchValue || '', onSearch: this.onSearch.bind(this) }"/>
                     <t t-component="ss_enterprise_theme.ThemeManager" t-props="{ selectedTheme: this.state.selectedTheme || 'light', onSelect: this.onThemeSelected.bind(this) }"/>
                 </div>
-                <t t-component="ss_enterprise_theme.AppGrid" t-props="{ apps: this.filteredApps, onDragStart: this.onDragStart.bind(this), onDragOver: this.onDragOver.bind(this), onDrop: this.onDrop.bind(this) }"/>
+                <t t-component="ss_enterprise_theme.AppGrid" t-props="{ apps: this.filteredApps, onDragStart: this.onDragStart.bind(this), onDragOver: this.onDragOver.bind(this), onDrop: this.onDrop.bind(this), onAppClick: this.onAppClick.bind(this) }"/>
             </div>
         </t>
     </template>
@@ -41,7 +41,7 @@
     <template t-name="ss_enterprise_theme.AppGrid">
         <div class="ss-app-grid">
             <t t-foreach="this.props.apps" t-as="app" t-key="app.id">
-                <t t-component="ss_enterprise_theme.AppTile" t-props="{ app: app, onDragStart: this.props.onDragStart, onDragOver: this.props.onDragOver, onDrop: this.props.onDrop }"/>
+                <t t-component="ss_enterprise_theme.AppTile" t-props="{ app: app, onDragStart: this.props.onDragStart, onDragOver: this.props.onDragOver, onDrop: this.props.onDrop, onAppClick: this.props.onAppClick }"/>
             </t>
         </div>
     </template>
@@ -51,7 +51,8 @@
              draggable="true"
              t-on-dragstart="(ev) => this.onDragStart(ev, this.props.app.id)"
              t-on-dragover="this.onDragOver"
-             t-on-drop="(ev) => this.onDrop(ev, this.props.app.id)">
+             t-on-drop="(ev) => this.onDrop(ev, this.props.app.id)"
+             t-on-click="this.onClick">
             <div class="ss-app-tile__icon">
                 <img t-if="this.props.app.webIconData" t-att-src="this.props.app.webIconData" alt="Icon"/>
                 <div t-if="!this.props.app.webIconData" class="ss-app-tile__fallback-icon"/>

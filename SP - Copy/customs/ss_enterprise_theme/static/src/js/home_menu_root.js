@@ -16,9 +16,14 @@ export class HomeMenuRoot extends Component {
 
     setup() {
         this.appMenuService = useService('app_menu');
+        const savedTheme = typeof window !== 'undefined' ? window.localStorage.getItem('ss_enterprise_theme') : null;
+        const initialTheme = savedTheme || 'light';
+        if (typeof window !== 'undefined') {
+            document.body.classList.add(`ss-theme-${initialTheme}`);
+        }
         this.state = useState({
             searchValue: '',
-            selectedTheme: 'light',
+            selectedTheme: initialTheme,
             apps: this.appMenuService.getAppsMenuItems(),
             draggedId: null,
         });
@@ -37,6 +42,17 @@ export class HomeMenuRoot extends Component {
         document.body.classList.remove('ss-theme-light', 'ss-theme-dark', 'ss-theme-glass');
         document.body.classList.add(`ss-theme-${theme}`);
         this.state.selectedTheme = theme;
+        if (typeof window !== 'undefined') {
+            window.localStorage.setItem('ss_enterprise_theme', theme);
+        }
+    }
+
+    onAppClick(app) {
+        if (app.href) {
+            window.location.hash = app.href;
+        } else if (typeof app.action === 'function') {
+            app.action();
+        }
     }
 
     onDragStart(event, appId) {
